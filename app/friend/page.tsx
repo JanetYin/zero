@@ -5,17 +5,16 @@ export default function FriendLayout() {
   return (
     <div className="page friend">
       <div className="mx-4 mb-4 block leading-7">
-        <p>不如来我这儿喝杯茶？嘿~</p>
-        <p>★ Bio：蝉時雨</p>
-        <p>★ Motto：蝉鸣如雨，花宵道中</p>
-        <p>★ Blog：https://chanshiyu.com</p>
-        <p>
+        <p>云山栖我，尔来小憩否</p>
+        <p>★ 是云影儿~</p>
+        <p>★ Blog：https://yun37.me</p>
+        {/* <p>
           ★ Avatar：
           <a className="avatar" href="/avatar.jpg" target="_blank" rel="noopener noreferrer">
             点击获取
           </a>
-        </p>
-        <p>※ 以下友链按博主互访频率排序，并根据个人对博客内容喜好加权，博主将不定期更新排序并过滤阵亡名单。</p>
+        </p> */}
+        <p>★ 以下是跳转到友邻的魔法阵 </p>
       </div>
       <ul className="grid w-full grid-cols-3 gap-4 sm:grid-cols-4 xl:grid-cols-5">
         {data.map((item) => {

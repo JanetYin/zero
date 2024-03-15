@@ -15,7 +15,7 @@ const Comment: FC<CommentProps> = ({ term }) => {
     <div className="mt-16">
       <Giscus
         id="comment"
-        repo="chanshiyucx/comment"
+        repo="JanetYin/Comment"
         repoId="MDEwOlJlcG9zaXRvcnkxNTA5MjIwMzM="
         category="Announcements"
         categoryId="DIC_kwDOCP7jMc4CX150"
@@ -24,7 +24,7 @@ const Comment: FC<CommentProps> = ({ term }) => {
         reactionsEnabled="0"
         emitMetadata="0"
         inputPosition="top"
-        theme={`https://www.chanshiyu.com/assets/styles/${theme.toLowerCase()}.css`}
+        theme={`https://www.yun37.me/assets/styles/${theme.toLowerCase()}.css`}
         lang="zh-CN"
         loading="lazy"
       />

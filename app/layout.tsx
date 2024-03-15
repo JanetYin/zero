@@ -8,6 +8,11 @@ import Side from '@/components/Side'
 import ThemeProvider from './context'
 import './globals.css'
 
+import localFont from 'next/font/local'
+
+
+//const serif  = localFont({ src: '../assets/font/hanyiquantangshijian.ttf', variable: '--font-serif', display: 'swap' })
+
 const serif = Noto_Serif_SC({
   subsets: ['latin'],
   weight: '500',
@@ -16,10 +21,10 @@ const serif = Noto_Serif_SC({
 })
 
 export const metadata: Metadata = {
-  title: '蝉時雨',
-  description: '蝉鸣如雨 花宵道中',
-  authors: [{ name: '蝉時雨', url: 'https://chanshiyu.com' }],
-  keywords: 'Code, ACG, Zero, 蝉時雨',
+  title: '云山栖',
+  description: '愿似飘飖五云影，从来从去九天间。',
+  authors: [{ name: '云影', url: 'https://yun37.me' }],
+  keywords: '云影',
   icons: {
     icon: [
       { url: '/favicon.ico' },
@@ -33,6 +38,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="zh-CN" className={serif.variable}>
+      
       <body>
         <ThemeProvider>
           <Cloud />

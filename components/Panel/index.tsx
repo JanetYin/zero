@@ -23,7 +23,7 @@ const Panel: FC<PanelProps> = ({ togglePanle }) => {
             <div></div>
           </div>
           <div className="content">
-            <div className="head">霞彩焕花火，花火知我愿</div>
+            <div className="head">RETURN TO THE FUTURE</div>
             <ul className="body">
               {themeList.map((t) => {
                 return (

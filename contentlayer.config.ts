@@ -9,7 +9,7 @@ import rehypePrettyCode from 'rehype-pretty-code'
 import remarkGfm from 'remark-gfm'
 import rehypeImageSizes from './utils/rehypeImageSizes'
 
-const POST_PATH = '時雨'
+const POST_PATH = 'wandering-clouds'
 
 export const Post = defineDocumentType(() => ({
   name: 'Post',
@@ -81,7 +81,7 @@ export const Post = defineDocumentType(() => ({
 
 const syncContentFromGit = async (contentDir: string) => {
   const syncRun = async () => {
-    const gitUrl = 'https://github.com/chanshiyucx/blog.git'
+    const gitUrl = 'https://github.com/JanetYin/blog.git'
     if (fs.existsSync(contentDir)) {
       await runBashCommand(`cd ${contentDir} && git pull`)
     } else {

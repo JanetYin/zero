@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://chanshiyu.com
+Host: https://yun37.me
 
 # Sitemaps
-Sitemap: https://chanshiyu.com/sitemap.xml
+Sitemap: https://yun37.me/sitemap.xml
