@@ -16,9 +16,9 @@ const Comment: FC<CommentProps> = ({ term }) => {
       <Giscus
         id="comment"
         repo="JanetYin/Comment"
-        repoId="MDEwOlJlcG9zaXRvcnkxNTA5MjIwMzM="
+        repoId="R_kgDOLeBa5g"
         category="Announcements"
-        categoryId="DIC_kwDOCP7jMc4CX150"
+        categoryId="DIC_kwDOLeBa5s4Cd2Ra"
         mapping="specific"
         term={term}
         reactionsEnabled="0"
