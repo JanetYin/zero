@@ -1,10 +1,6 @@
-import clsx from 'clsx'
 import { FC, useEffect } from 'react'
 import Typed from 'typed.js'
 import data from './index.json'
-import localFont from 'next/font/local'
-
-const siteFont = localFont({ src: '../../assets/font/hanyiquantangshijian.ttf', display: 'swap' })
 
 const Poetry: FC = () => {
   useEffect(() => {
@@ -22,8 +18,8 @@ const Poetry: FC = () => {
   }, [])
 
   return (
-    <div className={clsx(siteFont.className, 'h-12 flex-shrink-0 pl-1')}>
-      <span className="poetry leading-7 tracking-wide"></span>
+    <div className="h-12 flex-shrink-0 pl-1">
+      <span className="poetry leading-7 tracking-wide" style={{ fontSize: '14px' }}></span>
     </div>
   )
 }
