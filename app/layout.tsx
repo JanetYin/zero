@@ -8,11 +8,6 @@ import Side from '@/components/Side'
 import ThemeProvider from './context'
 import './globals.css'
 
-import localFont from 'next/font/local'
-
-
-//const serif  = localFont({ src: '../assets/font/hanyiquantangshijian.ttf', variable: '--font-serif', display: 'swap' })
-
 const serif = Noto_Serif_SC({
   subsets: ['latin'],
   weight: '500',
