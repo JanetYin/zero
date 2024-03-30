@@ -41,19 +41,19 @@ const Side: FC = () => {
       {/* side menu */}
       <div className="z-20 flex h-3/5 w-full justify-end">
         <nav className="nav nav-y flex w-12 flex-col items-center justify-end">
-          <Link className={clsx(pathname === '/' && 'active')} href="/" data-name="创作">
+          <Link className={clsx(pathname === '/' && 'active')} href="/" data-name="文字">
             <ScrollText />
           </Link>
-          <Link className={clsx(pathname === '/inspiration' && 'active')} href="/inspiration" data-name="灵感">
+          <Link className={clsx(pathname === '/inspiration' && 'active')} href="/inspiration" data-name="火花">
             <Sparkles />
           </Link>
           <Link className={clsx(pathname === '/project' && 'active')} href="/project" data-name="项目">
             <Codepen />
           </Link>
-          <Link className={clsx(pathname === '/book' && 'active')} href="/book" data-name="书单">
+          <Link className={clsx(pathname === '/book' && 'active')} href="/book" data-name="书卷">
             <BookOpen />
           </Link>
-          <Link className={clsx(pathname === '/friend' && 'active')} href="/friend" data-name="友邻">
+          <Link className={clsx(pathname === '/friend' && 'active')} href="/friend" data-name="会友">
             <HeartPulse />
           </Link>
           <Link className={clsx(pathname === '/about' && 'active')} href="/about" data-name="自述">
@@ -66,7 +66,7 @@ const Side: FC = () => {
 
       {/* footer menu */}
       <div className="flex justify-end py-12">
-        <div className="nya" data-name="時与风" onClick={togglePanle}>
+        <div className="nya" data-name="STORM" onClick={togglePanle}>
           <Butterfly />
         </div>
         <div className="nav nav-x flex h-12 items-center ">
