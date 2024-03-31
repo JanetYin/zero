@@ -1,18 +1,18 @@
-// /* eslint-disable @typescript-eslint/no-explicit-any */
+// eslint-disable @typescript-eslint/no-explicit-any 
 
 'use client'
 
 
 
-import type { Post } from 'contentlayer/generated'
-import AOS from 'aos'
-import clsx from 'clsx'
-import { allPosts } from 'contentlayer/generated'
-import { compareDesc, format } from 'date-fns'
-import { Bookmark, Calendar, Tag } from 'lucide-react'
-import { useRouter } from 'next/navigation'
-import { MouseEvent, useEffect, useRef, useState } from 'react'
-import MDX from '@/components/MDX'
+import type { Post } from 'contentlayer/generated';
+import AOS from 'aos';
+import clsx from 'clsx';
+import { allPosts } from 'contentlayer/generated';
+import { compareDesc, format } from 'date-fns';
+import { Bookmark, Calendar, Tag } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { MouseEvent, useEffect, useRef, useState } from 'react';
+import MDX from '@/components/MDX';
 
 
 export default function Page() {
@@ -41,16 +41,16 @@ export default function Page() {
 
     if (maskHeight === 0) {
       setTimeout(() => {
-        const target = listRef.current?.firstChild
-        if (target) {
-          calcMaskPos(target)
+        const target = listRef.current?.firstChild as HTMLElement | null;
+        if (target instanceof HTMLElement) {
+          calcMaskPos(target);
         }
-      }, 100)
+      }, 100);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page])
 
-  const calcMaskPos = (target: any) => {
+  const calcMaskPos = (target: HTMLElement) => {
     const { clientHeight, offsetTop } = target
     const paddingTop = document.documentElement.clientWidth > 1024 ? 4 * 16 : 6 * 16
     const realTop = offsetTop + paddingTop
