@@ -18,18 +18,18 @@ import MDX from '@/components/MDX'
 export default function Page() {
   const postList: Post[] = allPosts
     .filter((post) => post.category === '藏星')
-    .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
-  const router = useRouter()
-  const [page, setPage] = useState(1)
-  const [posts, setPosts] = useState<Post[]>([])
-  const maskRef = useRef<HTMLDivElement>(null)
-  const listRef = useRef<HTMLDivElement>(null)
-  const hoverRef = useRef<any>(null)
-  const timerRef = useRef<number>()
-  const finishedRef = useRef<boolean>(false)
-  const [maskHeight, setMaskHeight] = useState(0)
-  const [maskTop, setMaskTop] = useState(0)
-  const [anime, setAnime] = useState('fade-left')
+    .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)));
+  const router = useRouter();
+  const [page, setPage] = useState(1);
+  const [posts, setPosts] = useState<Post[]>([]);
+  const maskRef = useRef<HTMLDivElement>(null);
+  const listRef = useRef<HTMLDivElement>(null);
+  const hoverRef = useRef<HTMLElement | null>(null);
+  const timerRef = useRef<number>();
+  const finishedRef = useRef<boolean>(false);
+  const [maskHeight, setMaskHeight] = useState(0);
+  const [maskTop, setMaskTop] = useState(0);
+  const [anime, setAnime] = useState('fade-left');
 
   useEffect(() => {
     const data = postList.slice((page - 1) * 10, page * 10)
