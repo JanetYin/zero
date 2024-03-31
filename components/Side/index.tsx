@@ -19,6 +19,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { FC, useState } from 'react'
 import { Butterfly } from '@/components/Icons'
+import { Globe } from 'lucide-react';
 import Panel from '@/components/Panel'
 import ShootingStar from '@/components/ShootingStar'
 import Site from '@/components/Site'
@@ -41,7 +42,7 @@ const Side: FC = () => {
       {/* side menu */}
       <div className="z-20 flex h-3/5 w-full justify-end">
         <nav className="nav nav-y flex w-12 flex-col items-center justify-end">
-          <Link className={clsx(pathname === '/' && 'active')} href="/" data-name="文字">
+          <Link className={clsx(pathname === '/article' && 'active')} href="/article" data-name="文字">
             <ScrollText />
           </Link>
           <Link className={clsx(pathname === '/inspiration' && 'active')} href="/inspiration" data-name="火花">
@@ -50,7 +51,7 @@ const Side: FC = () => {
           <Link className={clsx(pathname === '/project' && 'active')} href="/project" data-name="项目">
             <Codepen />
           </Link>
-          <Link className={clsx(pathname === '/book' && 'active')} href="/book" data-name="书卷">
+          <Link className={clsx(pathname === '/book' && 'active')} href="/book" data-name="书斋">
             <BookOpen />
           </Link>
           <Link className={clsx(pathname === '/friend' && 'active')} href="/friend" data-name="会友">
@@ -87,6 +88,10 @@ const Side: FC = () => {
           </a>
           <a href={blog} rel="noopener noreferrer" target="_blank">
             <BookMarked />
+          </a>
+          <a> 
+            {/* onClick={handleLanguageChange} */}
+            <Globe />
           </a>
         </div>
       </div>

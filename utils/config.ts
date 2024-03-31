@@ -1,11 +1,11 @@
 const config = {
   contact: {
-    github: '',
+    github: 'https://github.com/JanetYin',
     twitter: '',
     telegram: '',
     email: 'mailto://yunyinger6@gmail.com',
     music: '',
-    blog: '',//https://chanshiyu.gitbook.io/blog
+    blog: 'https://www.yun37.me/note',
   },
 }
 
