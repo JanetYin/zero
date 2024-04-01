@@ -1,35 +1,35 @@
-// eslint-disable @typescript-eslint/no-explicit-any 
+// /* eslint-disable @typescript-eslint/no-explicit-any */
 
 'use client'
 
 
 
-import type { Post } from 'contentlayer/generated';
-import AOS from 'aos';
-import clsx from 'clsx';
-import { allPosts } from 'contentlayer/generated';
-import { compareDesc, format } from 'date-fns';
-import { Bookmark, Calendar, Tag } from 'lucide-react';
-import { useRouter } from 'next/navigation';
-import { MouseEvent, useEffect, useRef, useState } from 'react';
-import MDX from '@/components/MDX';
+import type { Post } from 'contentlayer/generated'
+import AOS from 'aos'
+import clsx from 'clsx'
+import { allNotes } from 'contentlayer/generated'
+import { compareDesc, format } from 'date-fns'
+import { Bookmark, Calendar, Tag } from 'lucide-react'
+import { useRouter } from 'next/navigation'
+import { MouseEvent, useEffect, useRef, useState } from 'react'
+import MDX from '@/components/MDX'
 
 
 export default function Page() {
-  const postList: Post[] = allPosts
-    .filter((post) => post.category === '碎月')
-    .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)));
-  const router = useRouter();
-  const [page, setPage] = useState(1);
-  const [posts, setPosts] = useState<Post[]>([]);
-  const maskRef = useRef<HTMLDivElement>(null);
-  const listRef = useRef<HTMLDivElement>(null);
-  const hoverRef = useRef<HTMLElement | null>(null);
-  const timerRef = useRef<number>();
-  const finishedRef = useRef<boolean>(false);
-  const [maskHeight, setMaskHeight] = useState(0);
-  const [maskTop, setMaskTop] = useState(0);
-  const [anime, setAnime] = useState('fade-left');
+  const postList: Post[] = allNotes
+    .filter((post) => post.category === 'Note')
+    // .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
+  const router = useRouter()
+  const [page, setPage] = useState(1)
+  const [posts, setPosts] = useState<Post[]>([])
+  const maskRef = useRef<HTMLDivElement>(null)
+  const listRef = useRef<HTMLDivElement>(null)
+  const hoverRef = useRef<any>(null)
+  const timerRef = useRef<number>()
+  const finishedRef = useRef<boolean>(false)
+  const [maskHeight, setMaskHeight] = useState(0)
+  const [maskTop, setMaskTop] = useState(0)
+  const [anime, setAnime] = useState('fade-left')
 
   useEffect(() => {
     const data = postList.slice((page - 1) * 10, page * 10)
@@ -41,16 +41,16 @@ export default function Page() {
 
     if (maskHeight === 0) {
       setTimeout(() => {
-        const target = listRef.current?.firstChild as HTMLElement | null;
-        if (target instanceof HTMLElement) {
-          calcMaskPos(target);
+        const target = listRef.current?.firstChild
+        if (target) {
+          calcMaskPos(target)
         }
-      }, 100);
+      }, 100)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page])
 
-  const calcMaskPos = (target: HTMLElement) => {
+  const calcMaskPos = (target: any) => {
     const { clientHeight, offsetTop } = target
     const paddingTop = document.documentElement.clientWidth > 1024 ? 4 * 16 : 6 * 16
     const realTop = offsetTop + paddingTop
