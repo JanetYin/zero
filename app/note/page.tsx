@@ -16,7 +16,7 @@ import MDX from '@/components/MDX';
 
 
 export default function Page() {
-  const postList: Post[] = allPosts
+  const postList: Post[] = allNotes
     .filter((post) => post.category === 'Note')
     .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)));
   const router = useRouter();
