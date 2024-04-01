@@ -10,6 +10,7 @@ import remarkGfm from 'remark-gfm'
 import rehypeImageSizes from './utils/rehypeImageSizes'
 
 const POST_PATH = 'wandering-clouds'
+const NOTE_PATH = 'computer-science'
 
 export const Post = defineDocumentType(() => ({
   name: 'Post',
@@ -78,7 +79,55 @@ export const Post = defineDocumentType(() => ({
     },
   },
 }))
-
+export const Note  = defineDocumentType(() => ({
+  name: 'Note',
+  filePathPattern: `${NOTE_PATH}/**/*.md`,
+  contentType: 'mdx',
+  fields: {
+    title: {
+      type: 'string',
+      required: true,
+    },
+    date: { 
+      type: 'string', 
+      required: true 
+    },
+    category: {
+      type: 'string',
+      required: true,
+    },
+    description: {
+      type: 'string',
+      required: false,
+    },
+    tags: {
+      type: 'list',
+      of: {
+        type: 'string',
+      },
+      required: true,
+    },
+  },
+  computedFields: {
+    url: {
+      type: 'string',
+      resolve: (post) => `/posts/${post.title}`,
+    },// Computed fields for these posts
+    summary: {
+      type: 'json',
+      resolve: async (post) => {
+        let raw = post.description
+        if (!raw) {
+          const regex = /^(.+)?\r?\n\s*(.+)?(\r?\n)?/
+          const result = regex.exec(post.body.raw)
+          raw = result ? result[2] : ''
+        }
+        const { code } = await bundleMDX({ source: raw })
+        return { code, raw }
+      },
+    },
+  },
+}));
 const syncContentFromGit = async (contentDir: string) => {
   const syncRun = async () => {
     const gitUrl = 'https://github.com/JanetYin/blog.git'
@@ -130,8 +179,8 @@ const runBashCommand = (command: string) =>
 export default makeSource({
   syncFiles: syncContentFromGit,
   contentDirPath: 'content',
-  contentDirInclude: [POST_PATH],
-  documentTypes: [Post],
+  contentDirInclude: [POST_PATH, NOTE_PATH],
+  documentTypes: [Post,Note],
   disableImportAliasWarning: true,
   mdx: {
     rehypePlugins: [
